@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import randomColor from 'randomcolor';
+import formatEvents from './helper/formatEvents';
+import inputs from './events.json';
+
+import './App.scss';
 
 function App() {
+  const events = formatEvents(inputs);
+
+  const classes = {
+    container: 'planity-test',
+    planning: 'planity-test__planning',
+    event: 'planity-test__event'
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.container}>
+      <div className={classes.planning}>
+        {events.map((eventGroups, index) => (
+          <div key={`events-group-${index}`}>
+            {eventGroups.map(({ start, duration, id, width, left }) => (
+              <div
+                key={`event-${id}`}
+                className={classes.event}
+                style={{
+                  '--color': randomColor(),
+                  '--top': `${start}px`,
+                  '--duration': `${duration}px`,
+                  '--width': `${width}%`,
+                  '--left': `${left}%`
+                }}
+              >
+                <p>{id}</p>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

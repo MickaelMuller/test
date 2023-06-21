@@ -1,0 +1,29 @@
+.planity-test {
+  @apply text-center
+    min-h-screen;
+
+  &__title {
+    @apply text-3xl font-bold underline;
+  }
+
+  &__planning {
+    @apply h-screen
+    relative;
+  }
+
+  &__event {
+    @apply absolute
+      rounded-md
+      border-black
+      border
+      flex
+      justify-center
+      items-center;
+
+    top: var(--top);
+    background-color: var(--color);
+    height: var(--duration);
+    width: var(--width);
+    left: var(--left);
+  }
+}
