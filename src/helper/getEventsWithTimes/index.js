@@ -1,5 +1,5 @@
 import getStartedMinutes from '../getStartedMinutes';
-import { DURATION_DAY, HOURS } from '../time';
+import { MIN_MINUTES, DURATION_DAY, MAX_MINUTES } from '../time';
 
 const getEventsWithTimes = (events) =>
   events
@@ -8,8 +8,7 @@ const getEventsWithTimes = (events) =>
       const { originalStartMinutes, startMinutesByScreen } = getStartedMinutes(event.start);
       const end = startMinutesByScreen + duration;
       const eventIsInSchedule =
-        originalStartMinutes >= DURATION_DAY &&
-        originalStartMinutes + event.duration <= HOURS(18).inMinutes;
+        originalStartMinutes >= MIN_MINUTES && originalStartMinutes + event.duration <= MAX_MINUTES;
 
       if (eventIsInSchedule) {
         acc.push({

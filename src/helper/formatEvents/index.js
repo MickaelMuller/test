@@ -1,5 +1,5 @@
 import getEventsGroupByOverlapping from '../getEventsGroupByOverlapping';
-import getEventsWithOverlappingPositions from '../getEventsWithOverlappingPositions/inde';
+import getEventsWithOverlappingPositions from '../getEventsWithOverlappingPositions';
 import getEventsWithTimes from '../getEventsWithTimes';
 
 const formatEvents = (events) => {

@@ -3,7 +3,7 @@ const getEventsWithOverlappingPositions = (events) =>
     let column = eventsGroup.length;
 
     return eventsGroup.map((event, index) => {
-      // set base left and width
+      // set base left and width for every event
       const width = 100 / eventsGroup.length;
       const left = index === 0 ? 0 : width * index;
       event.width = width;
@@ -35,13 +35,13 @@ const getEventsWithOverlappingPositions = (events) =>
 
         // check if we are at the last element of overlapping group for re compute width and left for each
         if (eventsGroup.length === index + 1 && moreThanTwoEvents) {
-          eventsGroup.forEach((app) => {
-            const prevWidth = app.width;
-            const prevLeft = app.left;
+          eventsGroup.forEach((e) => {
+            const prevWidth = e.width;
+            const prevLeft = e.left;
             const newWidth = 100 / column;
 
-            app.width = newWidth;
-            app.left = (newWidth * prevLeft) / prevWidth;
+            e.width = newWidth;
+            e.left = (newWidth * prevLeft) / prevWidth;
           });
         }
       }

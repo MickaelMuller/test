@@ -10,6 +10,8 @@ export const MINUTES = (value = 1) => SECONDS(value * 60);
 
 export const HOURS = (value = 1) => MINUTES(value * 60);
 
-export const DURATION_DAY = HOURS(9).inMinutes;
+export const DURATION_DAY = HOURS(12).inMinutes;
 
-export const START_MINUTES = HOURS(9).inMinutes;
+export const MIN_MINUTES = HOURS(9).inMinutes;
+
+export const MAX_MINUTES = HOURS(21).inMinutes;
