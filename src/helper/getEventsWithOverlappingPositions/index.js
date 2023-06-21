@@ -1,3 +1,9 @@
+/**
+ * Adds overlapping positions to the events.
+ *
+ * @param {Array<Array<Object>>} events - An array of groups of events.
+ * @returns {Array<Array<Object>>} - An array of groups of events with overlapping positions.
+ */
 const getEventsWithOverlappingPositions = (events) =>
   events.map((eventsGroup) => {
     let column = eventsGroup.length;

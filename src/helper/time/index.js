@@ -1,3 +1,9 @@
+/**
+ * Represents a duration in milliseconds.
+ *
+ * @param {number} [value=1] - The value representing the duration in milliseconds.
+ * @returns {Object} - An object with conversions to minutes, seconds, and milliseconds.
+ */
 export const MILLISECONDS = (value = 1) => ({
   inMinutes: value / 60000,
   inSeconds: value / 1000,

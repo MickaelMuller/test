@@ -18,21 +18,21 @@ function App() {
       <div className={classes.planning}>
         {events.map((eventGroups, index) => (
           <div key={`events-group-${index}`}>
-            {eventGroups.map(({ start, duration, id, width, left }) => (
-              <div
-                key={`event-${id}`}
-                className={classes.event}
-                style={{
-                  '--color': randomColor(),
-                  '--top': `${start}px`,
-                  '--duration': `${duration}px`,
-                  '--width': `${width}%`,
-                  '--left': `${left}%`
-                }}
-              >
-                <p>{id}</p>
-              </div>
-            ))}
+            {eventGroups.map(({ start, duration, id, width, left }) => {
+              const style = {
+                '--color': randomColor(),
+                '--top': `${start}px`,
+                '--duration': `${duration}px`,
+                '--width': `${width}%`,
+                '--left': `${left}%`
+              };
+
+              return (
+                <div key={`event-${id}`} className={classes.event} style={style}>
+                  <p>{id}</p>
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>

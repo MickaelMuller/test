@@ -1,6 +1,12 @@
 import getStartedMinutes from '../getStartedMinutes';
 import { MIN_MINUTES, DURATION_DAY, MAX_MINUTES } from '../time';
 
+/**
+ * Retrieves events with start and end times.
+ *
+ * @param {Array<Object>} events - An array of objects representing the events.
+ * @returns {Array<Object>} - An array of events with start and end times.
+ */
 const getEventsWithTimes = (events) =>
   events
     .reduce((acc, event) => {
